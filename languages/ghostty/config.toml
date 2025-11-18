@@ -1,0 +1,5 @@
+name = "Ghostty"
+grammar = "ghostty"
+path_suffixes = ["ghostty/config"]
+line_comments = ["#"]
+scopes = ["source.ghostty"]  # opzionale, aiuta il tema a sapere che lingua è
