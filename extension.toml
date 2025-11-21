@@ -1,7 +1,7 @@
 id = "ghostty"
 name = "Ghostty"
 description = "Ghostty configuration file support"
-version = "0.1.0"
+version = "0.2.0"
 schema_version = 1
 authors = ["Else"]
 repository = "https://github.com/Else00/ghostty-zed-extension"
