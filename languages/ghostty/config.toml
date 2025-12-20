@@ -2,6 +2,7 @@ name = "Ghostty"
 grammar = "ghostty"
 path_suffixes = [
   "ghostty/config",
+  "com.mitchellh.ghostty/config",
   "config/ghostty/config",
 ]
 line_comments = ["#"]
