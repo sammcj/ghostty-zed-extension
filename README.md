@@ -6,10 +6,26 @@ Zed extension that adds syntax highlighting for Ghostty's configuration file.
 ## Features
 
 - Syntax highlighting for Ghostty configuration files using the [`tree-sitter-ghostty`](https://github.com/bezhermoso/tree-sitter-ghostty) grammar.
-- ⚠️ Tries to automatically apply to files whose path ends in `ghostty/config`, for example:
-  - `~/.config/ghostty/config`
-  - `~/Library/Application Support/com.mitchellh.ghostty/config`  
-  In some cases Zed may open the file with language `Unknown`; if that happens, use the language selector in the bottom-right and switch it to `Ghostty` manually.
+- Auto-completion for configuration keys and values (boolean, enum, colour, keybind, theme, etc.)
+- Tries to automatically apply to files whose path ends in `ghostty/config`, `com.mitchellh.ghostty/config`, or `config/ghostty/config`
+
+### File detection workaround
+
+If Zed detects your Ghostty config as a different language (e.g. INI), add this to your Zed `settings.json`:
+
+```json
+{
+  "file_types": {
+    "Ghostty": [
+      "**/ghostty/config",
+      "**/com.mitchellh.ghostty/config",
+      "**/config/ghostty/config"
+    ]
+  }
+}
+```
+
+Alternatively, use the language selector in the bottom-right corner to manually switch to `Ghostty`.
 
 ## How it works
 
@@ -79,3 +95,31 @@ xdg-mime default dev.zed.Zed.desktop text/plain
 4. Open Ghostty and press `Ctrl+,`. If everything is wired correctly, the Ghostty config file should open in Zed and use this extension's Ghostty syntax highlighting.
 
 Because Linux desktop integration varies a lot, you might need to adapt these commands for your particular distribution or desktop environment. If something behaves differently, contributions to this section are welcome.
+
+## Development
+
+### Building the LSP server
+
+The extension includes a language server (`ghostty-lsp`) that provides auto-completion. To build it locally:
+
+```bash
+cargo build --release -p ghostty-lsp
+```
+
+The binary will be at `target/release/ghostty-lsp`.
+
+### Testing locally
+
+To test the extension with a local LSP binary (without requiring a GitHub release):
+
+1. Build the LSP server as above
+2. Set the `GHOSTTY_LSP_PATH` environment variable in your shell:
+
+```bash
+export GHOSTTY_LSP_PATH="$HOME/path/to/ghostty-zed-extension/target/release/ghostty-lsp"
+```
+
+3. Launch Zed from that shell (so it inherits the environment variable)
+4. Install the extension as a dev extension in Zed (Extensions → Install Dev Extension)
+
+When `GHOSTTY_LSP_PATH` is set, the extension uses that binary instead of downloading from GitHub releases.

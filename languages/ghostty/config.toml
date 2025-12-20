@@ -2,7 +2,9 @@ name = "Ghostty"
 grammar = "ghostty"
 path_suffixes = [
   "ghostty/config",
+  "com.mitchellh.ghostty/config",
   "config/ghostty/config",
 ]
+first_line_pattern = '#\s*(vim?:\s*(set\s+)?ft=ghostty|-\*-\s*(mode:\s*)?ghostty\s*-\*-)'
 line_comments = ["#"]
 scopes = ["source.ghostty"]
