@@ -1,0 +1,16 @@
+[package]
+name = "ghostty-lsp"
+version = "0.1.0"
+edition = "2021"
+description = "Language server for Ghostty terminal configuration files"
+license = "MIT"
+
+[[bin]]
+name = "ghostty-lsp"
+path = "src/main.rs"
+
+[dependencies]
+tower-lsp = "0.20.0"
+tokio = { version = "1.47", features = ["full"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.145"
