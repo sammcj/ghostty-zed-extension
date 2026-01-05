@@ -1,7 +1,7 @@
 id = "ghostty"
 name = "Ghostty"
 description = "Ghostty configuration file support"
-version = "0.3.0"
+version = "0.3.1"
 schema_version = 1
 authors = ["Else"]
 repository = "https://github.com/Else00/ghostty-zed-extension"
@@ -9,7 +9,7 @@ languages = ["languages/ghostty"]
 
 [grammars.ghostty]
 repository = "https://github.com/bezhermoso/tree-sitter-ghostty"
-rev = "2a9ae7233b6707e84b3a79c8778427f58aa4b6d0"
+rev = "c14d6cb4dd36ff9dd569978491aa52e4726cbe86"
 
 [language_servers.ghostty-lsp]
 name = "Ghostty LSP"
