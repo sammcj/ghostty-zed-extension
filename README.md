@@ -18,8 +18,7 @@ If Zed detects your Ghostty config as a different language (e.g. INI), add this 
   "file_types": {
     "Ghostty": [
       "**/ghostty/config",
-      "**/com.mitchellh.ghostty/config",
-      "**/config/ghostty/config"
+      "**/com.mitchellh.ghostty/config"
     ]
   }
 }
