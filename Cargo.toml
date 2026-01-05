@@ -1,0 +1,20 @@
+[package]
+name = "ghostty-zed-extension"
+version = "0.3.0"
+edition = "2021"
+description = "Zed extension for Ghostty terminal configuration files"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.7.0"
+
+[workspace]
+members = ["lsp"]
+
+[profile.release]
+strip = true
+lto = true
+opt-level = "z"
